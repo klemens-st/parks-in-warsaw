@@ -1,13 +1,13 @@
 import React from 'react';
 
 import Header from './Header';
-import GoogleMap from './GoogleMap';
+import MapComponent from './MapComponent';
 
 function Main() {
   return (
     <div>
       <Header />
-      <GoogleMap />
+      <MapComponent />
     </div>
   );
 }

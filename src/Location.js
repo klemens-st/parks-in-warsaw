@@ -1,16 +1,23 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { string, func, number } from 'prop-types';
 
 import './Location.css';
 
 Location.propTypes = {
-  title: string.isRequired
+  title: string.isRequired,
+  id: number.isRequired,
+  onParkClick: func.isRequired
 };
 
 function Location(props) {
   return (
     <li>
-      <button type="button">{props.title}</button>
+      <button
+        type="button"
+        onClick={() => props.onParkClick(props.id)}
+      >
+        {props.title}
+      </button>
     </li>
   );
 }

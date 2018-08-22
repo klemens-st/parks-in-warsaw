@@ -34,7 +34,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <FilterMenu parks={this.state.parks} />
+        <FilterMenu
+          parks={this.state.parks}
+          onParkClick={this.onParkClick}
+        />
         <Main
           parks={this.state.parks}
           onParkClick={this.onParkClick}

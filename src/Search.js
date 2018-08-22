@@ -1,11 +1,12 @@
 import React from 'react';
 
+import './Search.css';
 
 function Search() {
   return (
-    <div className="search">
+    <div className="search" role="search">
       <label>Filter locations:
-        <input type="text" name="filter" />
+        <input type="search" name="search" />
       </label>
     </div>
   );

@@ -1,13 +1,19 @@
 import React from 'react';
+import { array } from 'prop-types';
 
 import Header from './Header';
 import MapComponent from './MapComponent';
+import './Main.css';
 
-function Main() {
+Main.propTypes = {
+  parks: array.isRequired
+};
+
+function Main(props) {
   return (
     <main>
       <Header />
-      <MapComponent />
+      <MapComponent markers={props.parks}/>
     </main>
   );
 }

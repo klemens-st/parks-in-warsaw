@@ -1,9 +1,17 @@
 import React from 'react';
+import { string } from 'prop-types';
 
-function Location() {
+import './Location.css';
+
+Location.propTypes = {
+  title: string.isRequired
+};
+
+function Location(props) {
   return (
-    <div>
-    </div>
+    <li>
+      <button type="button">{props.title}</button>
+    </li>
   );
 }
 

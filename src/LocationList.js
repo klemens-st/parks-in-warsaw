@@ -4,9 +4,9 @@ import Location from './Location';
 
 function LocationList() {
   return (
-    <div>
+    <ul>
       <Location />
-    </div>
+    </ul>
   );
 }
 

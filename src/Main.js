@@ -5,10 +5,10 @@ import MapComponent from './MapComponent';
 
 function Main() {
   return (
-    <div>
+    <main>
       <Header />
       <MapComponent />
-    </div>
+    </main>
   );
 }
 

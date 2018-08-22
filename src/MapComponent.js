@@ -6,7 +6,11 @@ const MapComponent = compose(
   withProps({
     googleMapURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB09hoKDLzOue49_Kk1iR3h_zgiDs0kDF0&v=3',
     loadingElement: <div style={{ height: '100%' }} />,
-    containerElement: <div style={{ height: '600px' }} />,
+    containerElement: <div
+      style={{ height: '600px' }}
+      aria-label="location"
+      role="application"
+    />,
     mapElement: <div style={{ height: '100%' }} />,
   }),
   withScriptjs,

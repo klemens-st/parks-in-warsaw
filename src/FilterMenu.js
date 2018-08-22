@@ -5,10 +5,10 @@ import LocationList from './LocationList';
 
 function FilterMenu() {
   return (
-    <div>
+    <nav>
       <Search />
       <LocationList />
-    </div>
+    </nav>
   );
 }
 

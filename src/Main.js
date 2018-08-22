@@ -7,7 +7,8 @@ import './Main.css';
 
 Main.propTypes = {
   parks: array.isRequired,
-  onParkClick: func.isRequired
+  onParkClick: func.isRequired,
+  onToggleInfo: func.isRequired
 };
 
 function Main(props) {
@@ -17,6 +18,7 @@ function Main(props) {
       <MapComponent
         markers={props.parks}
         onParkClick={props.onParkClick}
+        onToggleInfo={props.onToggleInfo}
       />
     </main>
   );

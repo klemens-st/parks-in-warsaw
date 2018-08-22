@@ -14,7 +14,18 @@ class App extends Component {
     // Start animation
     this.setState((state) => ({
       parks: state.parks.map((park) => {
-        (park.id === parkId) && (park.animate = true);
+        (park.id === parkId) &&
+          (park.animate = true) &&
+          (park.info = true);
+        return park;
+      })
+    }), this.stopMarkerAnimation(parkId));
+  }
+
+  onToggleInfo = (parkId) => {
+    this.setState((state) => ({
+      parks: state.parks.map((park) => {
+        (park.id === parkId) && (park.info = false);
         return park;
       })
     }), this.stopMarkerAnimation(parkId));
@@ -52,6 +63,7 @@ class App extends Component {
         <Main
           parks={this.state.parks}
           onParkClick={this.onParkClick}
+          onToggleInfo={this.onToggleInfo}
         />
       </div>
     );

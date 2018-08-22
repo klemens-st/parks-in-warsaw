@@ -3,7 +3,7 @@ import React from 'react';
 import { compose, withProps, } from 'recompose';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 
-import Details from './Details';
+import DetailsContainer from './DetailsContainer';
 
 // Based on examples from https://tomchentw.github.io/react-google-maps/
 const MapComponent = compose(
@@ -34,7 +34,10 @@ const MapComponent = compose(
       >
         {marker.info && <InfoWindow
           onCloseClick={() => props.onToggleInfo(marker.id)}>
-          <Details />
+          <DetailsContainer
+            title={marker.title}
+            location={marker.location}
+          />
         </InfoWindow>}
       </Marker>
     ))}

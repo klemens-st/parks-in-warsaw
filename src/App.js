@@ -7,7 +7,7 @@ import './App.css';
 
 class App extends Component {
   state = {
-    parks: parks
+    parks: parks,
   }
 
   onParkClick = (parkId) => {
@@ -31,12 +31,23 @@ class App extends Component {
     });
   }
 
+  filterParks = (query) => {
+    const re = new RegExp(query, 'i');
+
+    this.setState({
+      parks: parks.filter((park) => (
+        re.test(park.title)
+      ))
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <FilterMenu
           parks={this.state.parks}
           onParkClick={this.onParkClick}
+          filterParks={this.filterParks}
         />
         <Main
           parks={this.state.parks}

@@ -7,13 +7,14 @@ import './FilterMenu.css';
 
 FilterMenu.propTypes = {
   parks: array.isRequired,
-  onParkClick: func.isRequired
+  onParkClick: func.isRequired,
+  filterParks: func.isRequired
 };
 
 function FilterMenu(props) {
   return (
     <nav>
-      <Search />
+      <Search filterParks={props.filterParks} />
       <LocationList
         parks={props.parks}
         onParkClick={props.onParkClick}

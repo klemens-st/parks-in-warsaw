@@ -11,7 +11,7 @@ const MapComponent = compose(
     googleMapURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB09hoKDLzOue49_Kk1iR3h_zgiDs0kDF0&v=3',
     loadingElement: <div style={{ height: '100%' }} />,
     containerElement: <div
-      style={{ height: 'calc(100% - 57px)' }}
+      style={{ height: '100%' }}
       aria-label="location"
       role="application"
     />,

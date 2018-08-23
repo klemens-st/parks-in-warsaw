@@ -1,7 +1,19 @@
 header {
   padding: 10px;
+  display: flex;
 }
 
 h1 {
   margin: 0;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.navicon {
+  width: initial;
+  height: initial;
+}
+
+.menu-button {
+
 }

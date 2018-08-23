@@ -2,5 +2,14 @@ nav,
 main,
 .App {
   box-sizing: border-box;
+}
+
+.App {
   height: 100%;
+}
+
+button {
+  background: initial;
+  border:initial;
+  color: #000;
 }

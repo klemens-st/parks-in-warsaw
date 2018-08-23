@@ -1,9 +1,6 @@
 li button{
   display: block;
-  color: #000;
   padding: 8px 10px;
-  background: initial;
-  border:initial;
   width: 100%;
   text-align: left;
 }

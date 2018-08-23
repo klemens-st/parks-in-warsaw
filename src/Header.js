@@ -14,7 +14,11 @@ function Header({toggleDrawer}) {
         type="button"
         onClick={toggleDrawer}
       >
-        Toggle drawer
+        <img
+          src={require('./img/navicon.svg')}
+          alt="Menu"
+          className="navicon"
+        />
       </button>
       <h1>Parks in Warsaw</h1>
     </header>

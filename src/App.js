@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import FilterMenu from './FilterMenu';
 import Main from './Main';
+import Header from './Header';
 import parks from './data';
 import './App.css';
 
@@ -67,11 +68,11 @@ class App extends Component {
           showDrawer={this.state.showDrawer}
           toggleDrawer={this.toggleDrawer}
         />
+        <Header toggleDrawer={this.toggleDrawer}/>
         <Main
           parks={this.state.parks}
           onParkClick={this.onParkClick}
           onToggleInfo={this.onToggleInfo}
-          toggleDrawer={this.toggleDrawer}
         />
       </div>
     );

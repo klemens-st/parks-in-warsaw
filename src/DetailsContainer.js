@@ -18,6 +18,12 @@ class DeatilsContainer extends Component {
     msg: ''
   }
 
+  heading = React.createRef();
+
+  focusHeading = () => {
+    this.heading.current.focus();
+  }
+
   componentDidMount() {
     this.fetchInfo();
   }
@@ -59,7 +65,7 @@ class DeatilsContainer extends Component {
           url: venue.canonicalUrl,
           imgUrl: venue.bestPhoto.prefix + 'height190' + venue.bestPhoto.suffix,
           imgSource: venue.bestPhoto.source.name
-        });
+        }, this.focusHeading);
       })
       .catch((err) => {
         this.setState({
@@ -79,6 +85,7 @@ class DeatilsContainer extends Component {
         imgUrl={imgUrl}
         imgSource={imgSource}
         msg={msg}
+        heading={this.heading}
       />
     );
   }

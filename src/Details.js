@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, bool } from 'prop-types';
+import { string, bool, object } from 'prop-types';
 
 import './Details.css';
 
@@ -9,12 +9,13 @@ Details.propTypes = {
   url: string,
   imgUrl: string,
   imgSource: string,
-  msg: string
+  msg: string,
+  heading: object.isRequired
 };
 
-function Details({name, url, imgUrl, imgSource, loaded, msg}) {
+function Details({name, url, imgUrl, imgSource, loaded, msg, heading}) {
   return (
-    <div>
+    <section>
       {!loaded && <img
         // eslint-disable-next-line no-undef
         src={require('./img/Spinner-1s-200px.svg')}
@@ -27,7 +28,7 @@ function Details({name, url, imgUrl, imgSource, loaded, msg}) {
         </div>
       }
       {loaded && !msg && <div>
-        <h3>{name}</h3>
+        <h3 tabIndex="-1" ref={heading}>{name}</h3>
         <figure>
           <img
             src={imgUrl}
@@ -41,10 +42,10 @@ function Details({name, url, imgUrl, imgSource, loaded, msg}) {
           rel="noopener noreferrer"
           target="_blank"
         >
-          See details on Foursquare
+          {name} details on Foursquare
         </a>}
       </div>}
-    </div>
+    </section>
   );
 }
 

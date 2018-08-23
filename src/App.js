@@ -8,6 +8,7 @@ import './App.css';
 class App extends Component {
   state = {
     parks: parks,
+    showDrawer: false
   }
 
   onParkClick = (parkId) => {
@@ -52,6 +53,10 @@ class App extends Component {
     });
   }
 
+  toggleDrawer = () => {
+    this.setState((state) => ({showDrawer: !state.showDrawer}));
+  }
+
   render() {
     return (
       <div className="App">
@@ -59,11 +64,14 @@ class App extends Component {
           parks={this.state.parks}
           onParkClick={this.onParkClick}
           filterParks={this.filterParks}
+          showDrawer={this.state.showDrawer}
+          toggleDrawer={this.toggleDrawer}
         />
         <Main
           parks={this.state.parks}
           onParkClick={this.onParkClick}
           onToggleInfo={this.onToggleInfo}
+          toggleDrawer={this.toggleDrawer}
         />
       </div>
     );

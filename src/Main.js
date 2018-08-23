@@ -9,13 +9,14 @@ import './Main.css';
 Main.propTypes = {
   parks: array.isRequired,
   onParkClick: func.isRequired,
-  onToggleInfo: func.isRequired
+  onToggleInfo: func.isRequired,
+  toggleDrawer: func.isRequired
 };
 
 function Main(props) {
   return (
     <main>
-      <Header />
+      <Header toggleDrawer={props.toggleDrawer}/>
       <ErrorBoundary>
         <MapComponent
           markers={props.parks}

@@ -1,11 +1,21 @@
 import React from 'react';
+import { func } from 'prop-types';
 
 import './Header.css';
 
-function Header() {
+Header.propTypes = {
+  toggleDrawer: func.isRequired
+};
+
+function Header({toggleDrawer}) {
   return (
     <header>
-      { /* Hamburger */}
+      <button
+        type="button"
+        onClick={toggleDrawer}
+      >
+        Toggle drawer
+      </button>
       <h1>Parks in Warsaw</h1>
     </header>
   );

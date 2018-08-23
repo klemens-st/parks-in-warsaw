@@ -1,5 +1,6 @@
 nav {
   width: 250px;
+  height: 100%;
   position: fixed;
   left: -250px;
   overflow: auto;

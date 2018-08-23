@@ -1,21 +1,19 @@
 import React from 'react';
 import MediaQuery from 'react-responsive';
-import { array, func, bool } from 'prop-types';
+import { func, bool } from 'prop-types';
 
 import Search from './Search';
 import LocationList from './LocationList';
 import './FilterMenu.css';
 
 FilterMenu.propTypes = {
-  parks: array.isRequired,
-  onParkClick: func.isRequired,
   filterParks: func.isRequired,
   toggleDrawer: func.isRequired,
   showDrawer: bool.isRequired
 };
 
-function FilterMenu({parks, onParkClick, filterParks,
-  toggleDrawer, showDrawer}) {
+function FilterMenu({filterParks,
+  toggleDrawer, showDrawer, ...other}) {
   return (
     <MediaQuery maxWidth={769}>
       {(matches) =>
@@ -32,10 +30,7 @@ function FilterMenu({parks, onParkClick, filterParks,
             </div>
           }
           <Search filterParks={filterParks} />
-          <LocationList
-            parks={parks}
-            onParkClick={onParkClick}
-          />
+          <LocationList {...other} />
         </nav>
       }
     </MediaQuery>

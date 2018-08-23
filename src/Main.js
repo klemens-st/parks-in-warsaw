@@ -1,24 +1,21 @@
 import React from 'react';
-import { array, func } from 'prop-types';
+import { array } from 'prop-types';
 
 import MapComponent from './MapComponent';
 import ErrorBoundary from './ErrorBoundary';
 import './Main.css';
 
 Main.propTypes = {
-  parks: array.isRequired,
-  onParkClick: func.isRequired,
-  onToggleInfo: func.isRequired,
+  parks: array.isRequired
 };
 
-function Main(props) {
+function Main({parks, ...other}) {
   return (
     <main>
       <ErrorBoundary>
         <MapComponent
-          markers={props.parks}
-          onParkClick={props.onParkClick}
-          onToggleInfo={props.onToggleInfo}
+          markers={parks}
+          {...other}
         />
       </ErrorBoundary>
     </main>

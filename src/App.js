@@ -16,6 +16,9 @@ class App extends Component {
     // Start animation
     this.setState((state) => ({
       parks: state.parks.map((park) => {
+        // Close all other infowindows
+        park.info = false;
+        // Run animations and open the selected infowindow
         (park.id === parkId) &&
           (park.animate = true) &&
           (park.info = true);

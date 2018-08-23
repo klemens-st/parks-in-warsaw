@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { func } from 'prop-types';
+import { func, object } from 'prop-types';
 
 import './Search.css';
 
 class Search extends Component {
   static propTypes = {
-    filterParks: func.isRequired
+    filterParks: func.isRequired,
+    searchField: object.isRequired
   }
 
   state = {
@@ -27,6 +28,7 @@ class Search extends Component {
           <input
             type="search"
             name="search"
+            ref={this.props.searchField}
             value={this.state.query}
             onChange={this.updateQuery}
           />

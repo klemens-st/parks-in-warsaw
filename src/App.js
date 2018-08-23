@@ -12,6 +12,8 @@ class App extends Component {
     showDrawer: false
   }
 
+  searchField = React.createRef()
+
   onParkClick = (parkId) => {
     // Start animation
     this.setState((state) => ({
@@ -57,8 +59,20 @@ class App extends Component {
     });
   }
 
+  focusSearchField = () => {
+    // Focus only if we are opening the drawer
+    this.state.showDrawer && this.searchField.current.focus();
+  }
+
   toggleDrawer = () => {
-    this.setState((state) => ({showDrawer: !state.showDrawer}));
+    this.setState(
+      (state) => ({showDrawer: !state.showDrawer}),
+      //
+      () => setTimeout(
+        () => this.searchField.current.focus(),
+        600
+      )
+    );
   }
 
   render() {
@@ -70,6 +84,7 @@ class App extends Component {
           filterParks={this.filterParks}
           showDrawer={this.state.showDrawer}
           toggleDrawer={this.toggleDrawer}
+          searchField={this.searchField}
         />
         <Header toggleDrawer={this.toggleDrawer}/>
         <Main

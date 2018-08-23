@@ -10,6 +10,7 @@ class DeatilsContainer extends Component {
   }
 
   state = {
+    loaded: false,
     name: '',
     url: '',
     imgUrl: '',
@@ -37,6 +38,7 @@ class DeatilsContainer extends Component {
       .then((data) => {
         const venue = data.response.venue;
         this.setState({
+          loaded: true,
           name: venue.name,
           url: venue.canonicalUrl,
           imgUrl: venue.bestPhoto.prefix + 'height190' + venue.bestPhoto.suffix,
@@ -46,9 +48,10 @@ class DeatilsContainer extends Component {
   }
 
   render() {
-    const {name, url, imgUrl, imgSource} = this.state;
+    const {name, url, imgUrl, imgSource, loaded} = this.state;
     return (
       <Details
+        loaded={loaded}
         name={name}
         url={url}
         imgUrl={imgUrl}

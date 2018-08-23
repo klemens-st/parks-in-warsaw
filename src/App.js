@@ -25,7 +25,9 @@ class App extends Component {
           (park.animate = true) &&
           (park.info = true);
         return park;
-      })
+      }),
+      // Also close drawer menu so that infowindows are visible
+      showDrawer: false
     }), this.stopMarkerAnimation(parkId));
   }
 

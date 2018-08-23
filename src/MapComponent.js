@@ -1,5 +1,6 @@
 /* global google */
 import React from 'react';
+import MediaQuery from 'react-responsive';
 import { compose, withProps, withHandlers } from 'recompose';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 
@@ -48,13 +49,21 @@ const MapComponent = compose(
         animation={marker.animate ? google.maps.Animation.BOUNCE : null}
         onClick={() => props.onParkClick(marker.id)}
       >
-        {marker.info && <InfoWindow
-          onCloseClick={() => props.onToggleInfo(marker.id)}>
-          <DetailsContainer
-            title={marker.title}
-            location={marker.location}
-          />
-        </InfoWindow>}
+        {marker.info &&
+          <MediaQuery maxWidth={425}>
+            {(matches) =>
+              <InfoWindow
+                onCloseClick={() => props.onToggleInfo(marker.id)}
+                options={{maxWidth: matches ? 150 : 200}}
+              >
+                <DetailsContainer
+                  title={marker.title}
+                  location={marker.location}
+                />
+              </InfoWindow>
+            }
+          </MediaQuery>
+        }
       </Marker>
     ))}
   </GoogleMap>

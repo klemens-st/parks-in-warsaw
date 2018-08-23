@@ -3,9 +3,22 @@ figure {
 }
 
 .featured {
-  height: 190px;
+  width: auto;
 }
 
 .loader {
-  height: 270px;
+  width: 100%;
+}
+
+@media screen and (max-width: 425px) {
+  .featured {
+    max-height: 100px;
+  }
+}
+
+@media screen and (min-width: 426px) {
+  .loader {
+    height: 260px;
+    width: 100%;
+  }
 }

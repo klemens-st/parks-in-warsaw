@@ -14,7 +14,8 @@ class DeatilsContainer extends Component {
     name: '',
     url: '',
     imgUrl: '',
-    imgSource: ''
+    imgSource: '',
+    msg: ''
   }
 
   componentDidMount() {
@@ -29,12 +30,27 @@ class DeatilsContainer extends Component {
     };
 
     fetch(`https://api.foursquare.com/v2/venues/search?client_id=${foursqCred.clientId}&client_secret=${foursqCred.clientSecret}&v=20180822&limit=1&intent=match&ll=${location.lat},${location.lng}&name=${title}`)
-      .then((response) => response.json())
-      .then((data) => data.response.venues[0].id)
+      .then((response) => {
+        if (response.status !== 200) {
+          throw new Error('Failed loading data from Foursqare');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (data.response.venues.length === 0) {
+          throw new Error('No matching locations found on Foursquare');
+        }
+        return data.response.venues[0].id;
+      })
       .then(id => (
         fetch(`https://api.foursquare.com/v2/venues/${id}?client_id=${foursqCred.clientId}&client_secret=${foursqCred.clientSecret}&v=20180822`)
       ))
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.status !== 200) {
+          throw new Error('Failed loading data from Foursqare');
+        }
+        return response.json();
+      })
       .then((data) => {
         const venue = data.response.venue;
         this.setState({
@@ -44,11 +60,17 @@ class DeatilsContainer extends Component {
           imgUrl: venue.bestPhoto.prefix + 'height190' + venue.bestPhoto.suffix,
           imgSource: venue.bestPhoto.source.name
         });
+      })
+      .catch((err) => {
+        this.setState({
+          loaded: true,
+          msg: err.message
+        });
       });
   }
 
   render() {
-    const {name, url, imgUrl, imgSource, loaded} = this.state;
+    const {name, url, imgUrl, imgSource, loaded, msg} = this.state;
     return (
       <Details
         loaded={loaded}
@@ -56,6 +78,7 @@ class DeatilsContainer extends Component {
         url={url}
         imgUrl={imgUrl}
         imgSource={imgSource}
+        msg={msg}
       />
     );
   }

@@ -8,18 +8,25 @@ Details.propTypes = {
   name: string,
   url: string,
   imgUrl: string,
-  imgSource: string
+  imgSource: string,
+  msg: string
 };
 
-function Details({name, url, imgUrl, imgSource, loaded}) {
+function Details({name, url, imgUrl, imgSource, loaded, msg}) {
   return (
     <div>
       {!loaded && <img
+        // eslint-disable-next-line no-undef
         src={require('./img/Spinner-1s-200px.svg')}
         alt="Loading"
         className="loader"
       />}
-      {loaded && <div>
+      {loaded && msg &&
+        <div role="alert">
+          <p>{msg}</p>
+        </div>
+      }
+      {loaded && !msg && <div>
         <h3>{name}</h3>
         <figure>
           <img src={imgUrl} alt={'Picture of ' + name}/>

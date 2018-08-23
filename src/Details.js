@@ -45,6 +45,7 @@ function Details({name, url, imgUrl, imgSource, loaded, msg, heading}) {
           {name} details on Foursquare
         </a>}
       </div>}
+      <small>Powered by Foursquare</small>
     </section>
   );
 }

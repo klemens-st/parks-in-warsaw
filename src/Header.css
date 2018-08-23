@@ -2,6 +2,8 @@ header {
   padding: 10px;
   display: flex;
   height: 57px;
+  background-color: #052b00;
+  color: white;
 }
 
 h1 {

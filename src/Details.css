@@ -22,4 +22,8 @@ figure {
     height: 260px;
     width: 100%;
   }
+
+  .featured {
+    max-width: 100% !important;
+  }
 }

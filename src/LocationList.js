@@ -11,7 +11,7 @@ LocationList.propTypes = {
 
 function LocationList(props) {
   return (
-    <ul aria-label="List of locations">
+    <ul id="results" aria-label="List of locations">
       {props.parks.map((park) => (
         <Location
           key={park.id}

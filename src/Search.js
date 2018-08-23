@@ -30,6 +30,7 @@ class Search extends Component {
             name="search"
             ref={this.props.searchField}
             value={this.state.query}
+            aria-controls="results"
             onChange={this.updateQuery}
           />
         </label>

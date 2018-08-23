@@ -1,3 +1,4 @@
+/* global require */
 import React from 'react';
 import MediaQuery from 'react-responsive';
 import { func, bool, object } from 'prop-types';

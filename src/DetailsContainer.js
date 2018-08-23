@@ -10,6 +10,7 @@ class DeatilsContainer extends Component {
   }
 
   state = {
+    // 'loaded' is set to true when Foursquare data is loaded
     loaded: false,
     name: '',
     url: '',
@@ -18,6 +19,8 @@ class DeatilsContainer extends Component {
     msg: ''
   }
 
+  // Ref to the heading of a 'loaded' infowindow
+  // For managing focus.
   heading = React.createRef();
 
   focusHeading = () => {
@@ -37,6 +40,7 @@ class DeatilsContainer extends Component {
 
     fetch(`https://api.foursquare.com/v2/venues/search?client_id=${foursqCred.clientId}&client_secret=${foursqCred.clientSecret}&v=20180822&limit=1&intent=match&ll=${location.lat},${location.lng}&name=${title}`)
       .then((response) => {
+        // Need to filter statuses because fetch doesn't reject on 400 etc.
         if (response.status !== 200) {
           throw new Error('Failed loading data from Foursqare');
         }
@@ -67,6 +71,7 @@ class DeatilsContainer extends Component {
           imgSource: venue.bestPhoto.source.name
         }, this.focusHeading);
       })
+      // All errors are caught here.
       .catch((err) => {
         this.setState({
           loaded: true,

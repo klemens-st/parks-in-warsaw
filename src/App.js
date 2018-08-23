@@ -9,9 +9,11 @@ import './App.css';
 class App extends Component {
   state = {
     parks: parks,
+    // Drawer menu state
     showDrawer: false
   }
 
+  // Ref to an <input type="search"> in the Search Component
   searchField = React.createRef()
 
   onParkClick = (parkId) => {
@@ -52,6 +54,7 @@ class App extends Component {
   }
 
   filterParks = (query) => {
+    // Run a simple case insensitive RegExp match.
     const re = new RegExp(query, 'i');
 
     this.setState({

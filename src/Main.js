@@ -3,6 +3,7 @@ import { array, func } from 'prop-types';
 
 import Header from './Header';
 import MapComponent from './MapComponent';
+import ErrorBoundary from './ErrorBoundary';
 import './Main.css';
 
 Main.propTypes = {
@@ -15,11 +16,13 @@ function Main(props) {
   return (
     <main>
       <Header />
-      <MapComponent
-        markers={props.parks}
-        onParkClick={props.onParkClick}
-        onToggleInfo={props.onToggleInfo}
-      />
+      <ErrorBoundary>
+        <MapComponent
+          markers={props.parks}
+          onParkClick={props.onParkClick}
+          onToggleInfo={props.onToggleInfo}
+        />
+      </ErrorBoundary>
     </main>
   );
 }

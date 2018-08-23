@@ -22,7 +22,7 @@ function Details({name, url, imgUrl, imgSource, loaded, msg}) {
         className="loader"
       />}
       {loaded && msg &&
-        <div role="alert">
+        <div className="alert" role="alert">
           <p>{msg}</p>
         </div>
       }

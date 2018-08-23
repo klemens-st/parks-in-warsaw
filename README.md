@@ -31,7 +31,7 @@ Install a simple http server
 npm install -g serve
 ```
 
-## Running the app locally
+### Running the app locally
 
 Follow these steps to deploy and serve the app locally
 

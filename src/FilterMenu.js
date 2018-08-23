@@ -1,4 +1,5 @@
 import React from 'react';
+import MediaQuery from 'react-responsive';
 import { array, func, bool } from 'prop-types';
 
 import Search from './Search';
@@ -16,23 +17,28 @@ FilterMenu.propTypes = {
 function FilterMenu({parks, onParkClick, filterParks,
   toggleDrawer, showDrawer}) {
   return (
-    <nav className={showDrawer ? 'show' : ''}>
-      <div className="btn-container">
-        <button
-          type="button"
-          onClick={toggleDrawer}
-          className="close-button"
-        >
-          <img src={require('./img/md-close.svg')} alt="Close"/>
-        </button>
-      </div>
-
-      <Search filterParks={filterParks} />
-      <LocationList
-        parks={parks}
-        onParkClick={onParkClick}
-      />
-    </nav>
+    <MediaQuery maxWidth={769}>
+      {(matches) =>
+        <nav className={(showDrawer || !matches) ? 'show' : ''}>
+          {matches &&
+            <div className="btn-container">
+              <button
+                type="button"
+                onClick={toggleDrawer}
+                className="close-button"
+              >
+                <img src={require('./img/md-close.svg')} alt="Close"/>
+              </button>
+            </div>
+          }
+          <Search filterParks={filterParks} />
+          <LocationList
+            parks={parks}
+            onParkClick={onParkClick}
+          />
+        </nav>
+      }
+    </MediaQuery>
   );
 }
 

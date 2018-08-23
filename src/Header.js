@@ -1,4 +1,5 @@
 import React from 'react';
+import MediaQuery from 'react-responsive';
 import { func } from 'prop-types';
 
 import './Header.css';
@@ -10,16 +11,18 @@ Header.propTypes = {
 function Header({toggleDrawer}) {
   return (
     <header>
-      <button
-        type="button"
-        onClick={toggleDrawer}
-      >
-        <img
-          src={require('./img/navicon.svg')}
-          alt="Menu"
-          className="navicon"
-        />
-      </button>
+      <MediaQuery maxWidth={769}>
+        <button
+          type="button"
+          onClick={toggleDrawer}
+        >
+          <img
+            src={require('./img/navicon.svg')}
+            alt="Menu"
+            className="navicon"
+          />
+        </button>
+      </MediaQuery>
       <h1>Parks in Warsaw</h1>
     </header>
   );

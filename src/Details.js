@@ -29,7 +29,11 @@ function Details({name, url, imgUrl, imgSource, loaded, msg}) {
       {loaded && !msg && <div>
         <h3>{name}</h3>
         <figure>
-          <img src={imgUrl} alt={'Picture of ' + name}/>
+          <img
+            src={imgUrl}
+            alt={'Picture of ' + name}
+            className="featured"
+          />
           <figcaption>Source: {imgSource}</figcaption>
         </figure>
         {url && <a

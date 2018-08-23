@@ -15,3 +15,13 @@ nav {
   left: 0;
 }
 
+
+.close-button img {
+  width: 30px;
+  height: 30px;
+}
+
+.btn-container {
+  border-bottom: 1px solid black;
+  text-align: right;
+}

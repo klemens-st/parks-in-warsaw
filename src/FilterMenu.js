@@ -17,12 +17,16 @@ function FilterMenu({parks, onParkClick, filterParks,
   toggleDrawer, showDrawer}) {
   return (
     <nav className={showDrawer ? 'show' : ''}>
-      <button
-        type="button"
-        onClick={toggleDrawer}
-      >
-        Toggle drawer
-      </button>
+      <div className="btn-container">
+        <button
+          type="button"
+          onClick={toggleDrawer}
+          className="close-button"
+        >
+          <img src={require('./img/md-close.svg')} alt="Close"/>
+        </button>
+      </div>
+
       <Search filterParks={filterParks} />
       <LocationList
         parks={parks}

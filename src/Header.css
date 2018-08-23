@@ -1,6 +1,7 @@
 header {
   padding: 10px;
   display: flex;
+  height: 57px;
 }
 
 h1 {
@@ -12,8 +13,4 @@ h1 {
 .navicon {
   width: initial;
   height: initial;
-}
-
-.menu-button {
-
 }

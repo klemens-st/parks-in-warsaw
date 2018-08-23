@@ -1,5 +1,5 @@
 main {
-  height: 100%;
+  height: calc(100% - 57px);
 }
 
 /* from https://www.w3schools.com/howto/howto_js_alert.asp */

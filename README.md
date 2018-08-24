@@ -64,6 +64,8 @@ Note that the service worker is disabled in development mode.
 ## Built With
 
 * [React](https://reactjs.org/) - The JS framework used
+* [Foursquare Places API](https://developer.foursquare.com/places-api) - Used to provide location details
+* [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial)
 * This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 * [npm](https://www.npmjs.com/) - Node.js Dependency Management
 * [react-google-maps](https://github.com/tomchentw/react-google-maps) - React.js Google Maps integration component library
